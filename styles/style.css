@@ -1,0 +1,144 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+}
+
+header {
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.social {
+  gap: 10px;
+  display: flex;
+  padding: 0 15px;
+  margin: 0;
+}
+
+.social-links {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .social-links li {
+    display: none;
+  }
+}
+header h2 {
+  font-size: 1.3em;
+  text-align: center;
+  margin: 0;
+}
+
+.fa-solid {
+  font-size: 1.5em;
+  padding-right: 15px;
+}
+
+.blur-background {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.nav {
+  display: flex;
+  justify-content: end;
+}
+.nav__menu {
+  padding: 0;
+  width: 0px;
+  height: 100vh;
+  background-color: #21266E;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.container__left, .container__right {
+  display: none;
+}
+
+.container__middle {
+  margin: 0 20px;
+  height: 500px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: rgb(24, 23, 23);
+  color: #FEF7ED;
+}
+.container__middle__image-div {
+  width: 100%;
+  margin: auto;
+  padding: 50px 0 10px;
+}
+.container__middle--img {
+  margin: auto;
+  width: 70px;
+  height: 70px;
+  background-image: url(../images/avatar.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100px;
+}
+
+.middle__name {
+  color: #8B8D99;
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.middle__h1 {
+  max-width: 500px;
+  margin: auto;
+  font-size: 3.5em;
+  font-weight: 700;
+  padding: 10px 8px 30px 5px;
+}
+
+.hero-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px 20px;
+  gap: 10px;
+}
+
+.container__left--mobile {
+  border-radius: 15px;
+  height: 200px;
+  background-color: #050063;
+}
+
+.container__right--mobile {
+  background-color: #660401;
+  height: 200px;
+  border-radius: 15px;
+}
+
+/*# sourceMappingURL=style.css.map */
