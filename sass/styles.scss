@@ -45,9 +45,15 @@ ul {
     color: black;
 }
 
-@media(max-width: 600px){
+@media(max-width: 1000px){
 
     .social-links li {
+        display: none;
+    }
+}
+
+@media(min-width: 1000px){
+    .socialnetworks {
         display: none;
     }
 }
@@ -89,12 +95,56 @@ header h2 {
 
 .container__left, .container__right {
     display: none;
+    @media (min-width: 800px){
+        display: flex;
+    }
+}
+
+.container__left {
+    align-items: end;
+    padding: 15px;
+    border-radius: 15px;
+    @include backgroundHero(url(../images/website-mockup-psd.jpg));
+    &--h2 {
+        font-size: 2em;
+        color: variables.$white;
+        font-weight: 300;
+    }
+}
+
+.container__right {
+    border-radius: 15px;
+    align-items: end;
+    padding: 15px;
+    @include backgroundHero( url(../images/cv.jpg));
+    &--h2 {
+        font-size: 2em;
+        color: variables.$white;
+        font-weight: 200;
+    }
+}
+
+.hero {
+    padding: 0 15px;
+    gap: 15px;
+
+}
+
+.hero__container {
+    @media (min-width: 800px){
+        background-color: rgb(24, 23, 23);
+        border-radius: 15px;
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 .container__middle {
-    margin: 0 20px;
     height: 500px;
     border-radius: 15px;
+    max-width: 500px;
+    margin: auto;
     text-align: center;
     background-color: rgb(24, 23, 23);
     color: variables.$white;
@@ -117,6 +167,7 @@ header h2 {
 
 }
 
+
 .middle__name{
     color: variables.$lightGrey;
     font-size: 1.1em;
@@ -131,24 +182,58 @@ header h2 {
     font-size: 3.5em;
     font-weight: 700;
     padding: 10px 8px 30px 5px;
+    @media (min-width: 800px){
+        font-size: 2.8em;
+    }
 }
 
 .hero-mobile {
+    max-width: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 10px 20px;
+    margin: 10px auto;
     gap: 10px;
+    @media (min-width :800px){
+        display: none;
+    }
 }
 
 .container__left--mobile{
     border-radius: 15px;
     height: 200px;
-    background-color: #050063;
+    max-width: 250px;
+    display: flex;
+    align-items: end;
+    padding: 15px;
+    @include backgroundHero(url(../images/website-mockup-psd.jpg));
+    &--mh2 {
+        font-size: 1.5em;
+        color: variables.$white;
+        font-weight: 200;
+    }
 }
 
 .container__right--mobile{
-    background-color: #660401;
+    @include backgroundHero( url(../images/cv.jpg));
     height: 200px;
+    max-width: 250px;
     border-radius: 15px;
+    display: flex;
+    align-items: end;
+    padding: 15px;
+    &--mh2 {
+        font-size: 1.5em;
+        color: variables.$white;
+        font-weight: 200;
+    }
 
+}
+
+
+.about-me {
+    margin-top:  100px;
+}
+
+.photo img {
+    width: 200px;
 }
