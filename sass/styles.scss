@@ -1,5 +1,6 @@
 @use 'variables';
 @import 'mixins';
+@import "../node_modules/rfs/scss";
 
 * {
     padding: 0;
@@ -8,7 +9,7 @@
 }
 
 body {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Josefin Sans', sans-serif !important;
     font-size: 16px;
 }
 
@@ -179,11 +180,11 @@ header h2 {
 .middle__h1 {
     max-width: 500px;
     margin: auto;
-    font-size: 3.5em;
+    @include font-size(5.5rem);
     font-weight: 700;
     padding: 10px 8px 30px 5px;
     @media (min-width: 800px){
-        font-size: 2.8em;
+        @include font-size(4rem);
     }
 }
 
@@ -232,8 +233,124 @@ header h2 {
 
 .about-me {
     margin-top:  100px;
+    &__text{
+        @include font-size(2rem);
+        line-height: 30px;
+        font-weight: 300;
+        max-width: 500px;
+        margin: auto;
+        text-align: center;
+        @media (min-width: 770px){
+            margin: 0;
+            text-align: left;
+        }
+    }
+    &__title {
+        @include font-size(4rem);
+        font-weight: bold;
+    }
 }
 
 .photo img {
     width: 200px;
+}
+
+.slider__title {
+    @include font-size(4rem);
+    font-weight: bold;
+}
+
+//SLIDER INFINITY
+
+.slider-section {
+    margin-top: 150px;
+}
+
+
+
+
+
+@mixin white-gradient {
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+
+// Animation
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+
+// Styling
+.slider {
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 120px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	max-width: 1500px;
+	
+	&::before,
+	&::after {
+		@include white-gradient;
+		content: "";
+		height: 120px;
+		position: absolute;
+		width: 100px;
+		z-index: 2;
+	}
+	
+	&::after {
+		right: 0;
+		top: 0;
+		transform: rotateZ(180deg);
+	}
+
+	&::before {
+		left: 0;
+		top: 0;
+	}
+	
+	.slide-track {
+		animation: scroll variables.$animationSpeed linear infinite;
+		display: flex;
+		width: calc(100px * 17);
+        @media (min-width: 768px){
+            width: calc(150px * 20);
+        }
+        
+	}
+	
+	.slide {
+        display: grid;
+        place-content: center;
+		height: 120px;
+		width: 250px;
+	}
+}
+
+.slide img {
+    width: 60px;
+    @media (min-width: 768px){
+        width: 90px;
+    }
+}
+
+.slide:nth-child(2) img, .slide:nth-child(11) img{
+    width: 45px;
+    @media (min-width: 768px){
+        width: 70px;
+    }
+}
+
+
+//PROJECT SECTION
+
+.projects {
+    margin-top: 150px;
+    h2 {
+        font-weight: bold;
+        @include font-size(4rem);
+    }
 }
