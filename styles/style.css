@@ -298,7 +298,7 @@ header h2 {
 }
 .slider {
   background: white;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  box-shadow: none;
   height: 120px;
   margin: auto;
   overflow: hidden;
@@ -368,6 +368,35 @@ header h2 {
   .projects h2 {
     font-size: 4rem;
   }
+}
+.projects__button {
+  margin: auto;
+}
+.projects__container {
+  padding: 0 30px !important;
+}
+
+.card {
+  width: 20rem;
+}
+@media (min-width: 768px) {
+  .card {
+    width: 30rem;
+  }
+}
+.card__buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.card__buttons button {
+  width: 100px;
+  background-color: rgb(66, 42, 204);
+  border-radius: 5px;
+  height: 40px;
+  border: none;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
