@@ -13,7 +13,15 @@ body {
     font-size: 16px;
 }
 
+main {
+    margin-top: 70px;
+}
+
 header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
     width: 100%;
     padding: 10px;
     display: grid;
@@ -368,12 +376,95 @@ header h2 {
         width: 30rem;
     }
     &__buttons {
-        width: 100%;
+
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        .second {
+            border: 1px solid #434344;
+            background-color: #fff;
+            color: #434344;
+
+        }
     }
     &__buttons button{
-        @include button(100px, rgb(66, 42, 204));
+        @include button(50px, #0d6efd, 60px, 0.8em);
+        @media (min-width: 315px){
+            @include button(80px, #0d6efd, 40px, 0.8em);
+        }
+        @media (min-width: 760px){
+            @include button(100px, #0d6efd, 40px, 1em);
+        }
+    }
+}
+
+.contact {
+    &__titlemain {
+        font-weight: bold;
+        @include font-size(4rem);
+    }
+    margin-top: 120px;
+    padding: 30px 20px;
+    background-image: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.158),
+        rgba(245, 236, 236, 0.89)
+    ), url(../images/photo-1547628641-ec2098bb5812.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__subtitle{
+        @include font-size(1rem);
+        line-height: 20px;
+        font-weight: 300;
+        margin: auto;
+        max-width: 900px;
+        padding: 0 10px;
+        @media (min-width: 760px){
+            @include font-size(1.5rem);
+            line-height: 30px;
+        }
+    }
+
+    form {
+        width: 100%;
+    }
+    &__div {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        background-color: white;
+        border-radius: 15px;
+    }
+}
+
+//LOGO
+
+.footer {
+    background-color: variables.$black;
+    
+    .logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%; 
+        color:  #fff;
+
+        h2 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-weight: 300;
+            margin: auto;
+            max-width: 300px;
+            line-height: 20px;
+            @include font-size(1em)
+        }
     }
 }

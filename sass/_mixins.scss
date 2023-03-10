@@ -1,4 +1,5 @@
 @use 'variables';
+@import "../node_modules/rfs/scss";
 
 @mixin backgroundHero($url){
     background-image: linear-gradient(
@@ -15,11 +16,13 @@
 	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
 }
 
-@mixin button($width, $color){
+@mixin button($width, $color, $height, $size){
     width: $width;
     background-color: $color;
     border-radius: 5px;
-    height: 40px;
+    height: $height;
     border: none;
     color: white;
+    font-size: $size;
+    padding: 3px;
 }
