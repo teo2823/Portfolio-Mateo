@@ -489,6 +489,17 @@ header h2 {
 .footer {
   background-color: #010105;
 }
+.footer__container .div-footer {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+@media (min-width: 576px) {
+  .footer__container .div-footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 .footer .logo {
   display: flex;
   flex-direction: column;
@@ -497,16 +508,54 @@ header h2 {
   width: 100%;
   color: #fff;
 }
+@media (min-width: 576px) {
+  .footer .logo {
+    align-items: flex-start;
+  }
+}
 .footer .logo h2 {
   text-align: center;
 }
 .footer .logo p {
   text-align: center;
   font-weight: 300;
+  color: #b9b9b9;
   margin: auto;
   max-width: 300px;
   line-height: 20px;
   font-size: 1em;
+}
+@media (min-width: 576px) {
+  .footer .logo p {
+    font-size: 0.7em;
+    text-align: left;
+    max-width: 200px;
+    text-align: center;
+  }
+}
+@media (min-width: 768px) {
+  .footer .logo p {
+    font-size: 1.5em;
+    text-align: left;
+    max-width: 400px;
+  }
+}
+.footer .list h3 {
+  color: #8B8D99;
+}
+.footer .social h3 {
+  color: #8B8D99;
+}
+.footer a {
+  color: #636363;
+  text-decoration: none;
+  display: flex;
+}
+.footer a i {
+  font-size: 1.5em;
+}
+.footer ul {
+  padding: 0 !important;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -445,7 +445,17 @@ header h2 {
 
 .footer {
     background-color: variables.$black;
-    
+    &__container {
+        .div-footer {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column-reverse;
+            @media (min-width: 576px){
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
     .logo {
         display: flex;
         flex-direction: column;
@@ -453,6 +463,9 @@ header h2 {
         align-items: center;
         width: 100%; 
         color:  #fff;
+        @media (min-width: 576px){
+            align-items: flex-start;
+        }
 
         h2 {
             text-align: center;
@@ -461,10 +474,43 @@ header h2 {
         p {
             text-align: center;
             font-weight: 300;
+            color: #b9b9b9;
             margin: auto;
             max-width: 300px;
             line-height: 20px;
-            @include font-size(1em)
+            @include font-size(1em);
+            @media (min-width: 576px){
+                font-size: 0.7em;
+                text-align: left;
+                max-width: 200px;
+                text-align: center;
+            }
+            @media (min-width: 768px){
+                font-size: 1.5em;
+                text-align: left;
+                max-width: 400px;
+            }
         }
+    }
+
+    .list h3{
+        color: variables.$lightGrey;
+    }
+
+    .social h3 {
+        color: variables.$lightGrey;
+    }
+
+    a {
+        color: #636363;
+        text-decoration: none;
+        display: flex;
+
+        i {
+            font-size: 1.5em;
+        }
+    }
+    ul {
+        padding: 0 !important;
     }
 }
