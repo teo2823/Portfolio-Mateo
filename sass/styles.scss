@@ -20,7 +20,7 @@ main {
 header {
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 4;
     background-color: #fff;
     width: 100%;
     padding: 10px;
@@ -28,12 +28,17 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0px 21px 17px -3px rgba(0,0,0,0.1);
 }
 
 ul {
     list-style: none;
 }
 
+li:hover {
+    color: #8e8e8f;
+    transition: all 150ms ease-in-out;
+}
 
 
 
@@ -46,12 +51,12 @@ ul {
 
 
 .social-links {
-    font-size: 1.2em;
+    font-size: 1.1em;
     display: flex;
     align-items: center;
     text-decoration: none;
     text-transform: uppercase;
-    color: black;
+    color: variables.$black;
 }
 
 @media(max-width: 1000px){
@@ -78,6 +83,13 @@ header h2 {
 .fa-solid{
     font-size: 1.5em;
     padding-right: 15px;
+    cursor: pointer;
+}
+
+.barras {
+    @media(min-width: 992px){
+        display: none;
+    }
 }
 .blur-background {
     display: none;
@@ -88,155 +100,186 @@ header h2 {
     left: 0;
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+.navdesktop {
+    display: none;
+    margin: 0;
+    padding-right: 15px;
+    @media(min-width: 992px){
+        display: flex;
+    }
+    
+    a {
+        color: variables.$black;
+        text-decoration: none;
+        margin-left: 15px;
+
+        li {
+            text-transform: uppercase;
+            font-size: 1.1em;
+        }
+    }
+}
 .nav{
     display: flex;
     justify-content: end;
     &__menu {
+        transition: all 300ms linear;
         padding: 0;
         width: 0px;
         height: 100vh;
-        background-color: #21266E;
+        background-color: variables.$black;
         position: fixed;
         top: 0;
         right: 0;
-    }
-}
+        
+        
 
-.container__left, .container__right {
-    display: none;
-    @media (min-width: 800px){
-        display: flex;
-    }
-}
+        .nav__lists {
+            padding: 30px 20px;
+            @media (min-width: 992px){
+                display: flex;
+            }
+        }
 
-.container__left {
-    align-items: end;
-    padding: 15px;
-    border-radius: 15px;
-    @include backgroundHero(url(../images/website-mockup-psd.jpg));
-    &--h2 {
-        font-size: 2em;
-        color: variables.$white;
-        font-weight: 300;
-    }
-}
+        .xmark {
+            z-index: 2;
+            font-size: 2em;
+        }
 
-.container__right {
-    border-radius: 15px;
-    align-items: end;
-    padding: 15px;
-    @include backgroundHero( url(../images/cv.jpg));
-    &--h2 {
-        font-size: 2em;
-        color: variables.$white;
-        font-weight: 200;
+        .xmark-container {
+            height: 70px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 15px;
+            align-items: center;
+            display: none;
+
+        }
+
+        a {
+           text-decoration: none;
+           color: variables.$white;
+           @include font-size(1.2em);
+           
+           li {
+            margin-bottom: 20px;
+           }
+        }
+    
     }
 }
 
 .hero {
-    padding: 0 15px;
-    gap: 15px;
-
-}
-
-.hero__container {
-    @media (min-width: 800px){
-        background-color: rgb(24, 23, 23);
-        border-radius: 15px;
-        padding: 15px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-.container__middle {
+    @include backgroundHero(url(../images/armand-khoury-4cBVro7SHLs-unsplash.jpg));
     height: 500px;
-    border-radius: 15px;
-    max-width: 500px;
-    margin: auto;
-    text-align: center;
-    background-color: rgb(24, 23, 23);
-    color: variables.$white;
-    &__image-div {
+
+    &__info {
+        height: 100%;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 500px;
+        margin: auto;
+        @media (min-width: 768px){
+            flex-direction: row;
+            max-width: 100%;
+            margin: 0;
+            
+        }
+    }
+
+    &__title {
+        @include font-size(5rem);
+        color: variables.$white;
+        font-weight: bold;
+        text-shadow: -4px 3px 6px rgba(0, 0, 0, 1);
+        text-align: center;
+        @media (min-width: 768px){
+            width: 60%;
+            text-align: start;
+            display: grid;
+            place-content: center;
+        }
+    }
+
+    &__buttons {
         width: 100%;
-        margin: auto;
-        padding: 50px 0 10px;
-    }
-    &--img {
-        
-        margin: auto;
-        width: 70px;
-        height: 70px;
-        background-image: url(../images/avatar.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 100px;
-    }
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media (min-width: 568px){
+            flex-direction: row;
+        }
+        @media (min-width: 768px){
+            width: 40%;
+            text-align: start;
+        }
 
+        .btn-hero {
+            align-items: center;
+            appearance: none;
+            background-color: #FCFCFD;
+            border-radius: 4px;
+            border-width: 0;
+            box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #36395A;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "JetBrains Mono",monospace;
+            height: 48px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s,transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow,transform;
+            font-size: 18px;
+        }
+        .btn-hero:focus {
+            box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+          }
+          
+          .btn-hero:hover {
+            box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            transform: translateY(-2px);
+          }
+          
+          .btn-hero:active {
+            box-shadow: #D6D6E7 0 3px 7px inset;
+            transform: translateY(2px);
+          }
+
+
+        }
+
+        .btn-secondhero {
+            background-color: variables.$black;
+            border: 1px solid rgb(255, 255, 255);
+            color: #ffff;
+            border-radius: 4px;
+            padding: 4px 10px;
+            width: 140px;
+            i {margin-left: 4px;}
+        }
 }
 
 
-.middle__name{
-    color: variables.$lightGrey;
-    font-size: 1.1em;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.middle__h1 {
-    max-width: 500px;
-    margin: auto;
-    @include font-size(5.5rem);
-    font-weight: 700;
-    padding: 10px 8px 30px 5px;
-    @media (min-width: 800px){
-        @include font-size(4rem);
-    }
-}
-
-.hero-mobile {
-    max-width: 500px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 10px auto;
-    gap: 10px;
-    @media (min-width :800px){
-        display: none;
-    }
-}
-
-.container__left--mobile{
-    border-radius: 15px;
-    height: 200px;
-    max-width: 250px;
-    display: flex;
-    align-items: end;
-    padding: 15px;
-    @include backgroundHero(url(../images/website-mockup-psd.jpg));
-    &--mh2 {
-        font-size: 1.5em;
-        color: variables.$white;
-        font-weight: 200;
-    }
-}
-
-.container__right--mobile{
-    @include backgroundHero( url(../images/cv.jpg));
-    height: 200px;
-    max-width: 250px;
-    border-radius: 15px;
-    display: flex;
-    align-items: end;
-    padding: 15px;
-    &--mh2 {
-        font-size: 1.5em;
-        color: variables.$white;
-        font-weight: 200;
-    }
-
-}
 
 
 .about-me {
@@ -372,6 +415,9 @@ header h2 {
 
 .card {
     width: 20rem;
+    .card-body {
+        font-family: variables.$font !important;
+    }
     @media (min-width: 768px){
         width: 30rem;
     }
@@ -438,10 +484,16 @@ header h2 {
         margin: auto;
         background-color: white;
         border-radius: 15px;
+        
+    }
+
+    .first-div {
+        box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.3);;
     }
 }
 
-//LOGO
+
+//footer
 
 .footer {
     background-color: variables.$black;
@@ -467,6 +519,19 @@ header h2 {
             align-items: flex-start;
         }
 
+        &__name {
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            @media (min-width: 768px){
+                justify-content: flex-start;
+                width: 300px;
+                h2 br {
+                    display: none;
+                }
+            }
+        }
+
         h2 {
             text-align: center;
         }
@@ -478,18 +543,23 @@ header h2 {
             margin: auto;
             max-width: 300px;
             line-height: 20px;
-            @include font-size(1em);
             @media (min-width: 576px){
-                font-size: 0.7em;
                 text-align: left;
                 max-width: 200px;
                 text-align: center;
+                font-size: 0.9em !important;
             }
             @media (min-width: 768px){
-                font-size: 1.5em;
+                font-size: 1em !important;
                 text-align: left;
-                max-width: 400px;
+                max-width: 300px;
             }
+        }
+    }
+
+    .list ul a li {
+        @media (min-width: 768px){
+            font-size: 1.2em;
         }
     }
 
@@ -508,9 +578,36 @@ header h2 {
 
         i {
             font-size: 1.5em;
+            @media (min-width: 768px){
+                font-size: 2em;
+            }
         }
     }
     ul {
         padding: 0 !important;
+        
+    }
+
+    .lists-div {
+        @media (min-width: 578px){
+            width: 400px !important;
+        }
+        @media (min-width: 768px){
+            width: 420px !important;
+        }
+    }
+
+    .copy {
+        margin-bottom: 0 ;
+        text-align: center;
+        padding: 0px 20px 20px 30px;
+        @include font-size(0.8em);
+        @media (min-width: 578px){
+            font-size: 1.2em;
+        }
     }
 }
+
+
+//dark mode styles
+
