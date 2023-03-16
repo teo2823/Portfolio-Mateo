@@ -26,6 +26,28 @@ xmark.addEventListener('click', ()=>{
     xmark.style.display = 'none';
 })
 
-// SHOW X
+// animaciones
+
+const aboutMe = document.querySelector('.aboutmeDivTr');
+//Funcion de mostrar imagen al scrollear
+let effect = (entrys, observador)=>{
+    entrys.forEach((entry) => {
+        if(entry.isIntersecting){
+            console.log(entry)
+            entry.target.classList.add('visible');
+        }
+        
+    });
+}
+
+const observador = new IntersectionObserver(effect, {
+    root: null,
+    rootMargin: '0px 0px 400px 0px',
+    threshold: 1.0
+});
+
+observador.observe(aboutMe);
+
+
 
 

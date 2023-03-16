@@ -159,7 +159,7 @@ header h2 {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 500px;
+  height: 600px;
 }
 .hero__info {
   height: 100%;
@@ -195,6 +195,12 @@ header h2 {
     text-align: start;
     display: grid;
     place-content: center;
+    font-size: calc(1.675rem + 5.1vw);
+  }
+}
+@media (min-width: 768px) and (min-width: 1200px) {
+  .hero__title {
+    font-size: 5.5rem;
   }
 }
 .hero__buttons {
@@ -214,28 +220,35 @@ header h2 {
 @media (min-width: 768px) {
   .hero__buttons {
     width: 40%;
-    text-align: start;
+    flex-direction: column;
   }
 }
-.hero__buttons .btn-hero {
+@media (min-width: 992px) {
+  .hero__buttons {
+    width: 40%;
+    gap: 40px;
+    flex-direction: row;
+  }
+}
+.hero__buttons .btn-hero, .hero__buttons .btn-secondhero {
   align-items: center;
   appearance: none;
-  background-color: #FCFCFD;
+  background-color: #ffffff;
   border-radius: 4px;
   border-width: 0;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   box-sizing: border-box;
-  color: #36395A;
+  color: #060708;
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Josefin Sans", sans-serif;
   height: 48px;
+  width: 140px;
   justify-content: center;
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0 16px;
   position: relative;
   text-align: left;
   text-decoration: none;
@@ -246,15 +259,23 @@ header h2 {
   white-space: nowrap;
   will-change: box-shadow, transform;
   font-size: 18px;
+  border: 1px solid black;
 }
-.hero__buttons .btn-hero:focus {
+@media (min-width: 1200px) {
+  .hero__buttons .btn-hero, .hero__buttons .btn-secondhero {
+    height: 68px;
+    width: 170px;
+    font-size: 22px;
+  }
+}
+.hero__buttons .btn-hero:focus, .hero__buttons .btn-secondhero:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
-.hero__buttons .btn-hero:hover {
+.hero__buttons .btn-hero:hover, .hero__buttons .btn-secondhero:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
-.hero__buttons .btn-hero:active {
+.hero__buttons .btn-hero:active, .hero__buttons .btn-secondhero:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
@@ -263,8 +284,6 @@ header h2 {
   border: 1px solid rgb(255, 255, 255);
   color: white;
   border-radius: 4px;
-  padding: 4px 10px;
-  width: 140px;
 }
 .hero .btn-secondhero i {
   margin-left: 4px;
@@ -275,7 +294,7 @@ header h2 {
 }
 .about-me__text {
   font-size: calc(1.325rem + 0.9vw);
-  line-height: 30px;
+  line-height: 35px;
   font-weight: 300;
   max-width: 500px;
   margin: auto;
@@ -304,6 +323,17 @@ header h2 {
 
 .photo img {
   width: 200px;
+}
+
+.aboutmeDivTr {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 900ms ease-in-out;
+}
+
+.aboutmeDivTr.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .slider__title {
@@ -407,6 +437,62 @@ header h2 {
 .projects__container {
   padding: 0 30px !important;
 }
+.projects__btn {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  color: #060708;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Josefin Sans", sans-serif;
+  height: 40px;
+  width: 130px;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 16px;
+  transition: box-shadow 0.15s, transform 0.15s;
+  font-size: 0.8em;
+}
+@media (min-width: 768px) {
+  .projects__btn {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    color: #060708;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "Josefin Sans", sans-serif;
+    height: 40px;
+    width: 160px;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 16px;
+    transition: box-shadow 0.15s, transform 0.15s;
+    font-size: 1em;
+  }
+}
+
+.projects__btn:focus, .card__buttons a button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.projects__btn:hover, .card__buttons a button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.projects__btn:active, .card__buttons a button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
 
 .card {
   width: 20rem;
@@ -424,50 +510,106 @@ header h2 {
   align-items: center;
   justify-content: space-evenly;
 }
+.card__buttons a {
+  text-decoration: none;
+}
 .card__buttons .second {
-  border: 1px solid #434344;
-  background-color: #fff;
-  color: #434344;
+  border: 1px solid #fff;
+  font-weight: 300;
+  background-color: #010105;
+  color: #fff;
 }
 .card__buttons button {
-  width: 50px;
-  background-color: #0d6efd;
-  border-radius: 5px;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  color: #060708;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Josefin Sans", sans-serif;
   height: 60px;
-  border: none;
-  color: white;
+  width: 50px;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 16px;
+  transition: box-shadow 0.15s, transform 0.15s;
   font-size: 0.8em;
-  padding: 3px;
 }
 @media (min-width: 315px) {
   .card__buttons button {
-    width: 80px;
-    background-color: #0d6efd;
-    border-radius: 5px;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    color: #060708;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "Josefin Sans", sans-serif;
     height: 40px;
-    border: none;
-    color: white;
+    width: 80px;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 16px;
+    transition: box-shadow 0.15s, transform 0.15s;
     font-size: 0.8em;
-    padding: 3px;
   }
 }
 @media (min-width: 760px) {
   .card__buttons button {
-    width: 100px;
-    background-color: #0d6efd;
-    border-radius: 5px;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    color: #060708;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "Josefin Sans", sans-serif;
     height: 40px;
-    border: none;
-    color: white;
+    width: 100px;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 16px;
+    transition: box-shadow 0.15s, transform 0.15s;
     font-size: 1em;
-    padding: 3px;
+  }
+}
+@media (min-width: 968px) {
+  .card__buttons button {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    color: #060708;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "Josefin Sans", sans-serif;
+    height: 40px;
+    width: 140px;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 16px;
+    transition: box-shadow 0.15s, transform 0.15s;
+    font-size: 1.2em;
   }
 }
 
 .contact {
   margin-top: 120px;
   padding: 30px 20px;
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.158), rgba(245, 236, 236, 0.89)), url(../images/photo-1547628641-ec2098bb5812.avif);
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.158), rgba(7, 7, 7, 0.89)), url(../images/adrien-olichon-WNs0bW8kHTM-unsplash.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -475,6 +617,7 @@ header h2 {
 .contact__titlemain {
   font-weight: bold;
   font-size: calc(1.525rem + 3.3vw);
+  color: #FEF7ED;
 }
 @media (min-width: 1200px) {
   .contact__titlemain {
@@ -488,6 +631,7 @@ header h2 {
   margin: auto;
   max-width: 900px;
   padding: 0 10px;
+  color: #FEF7ED;
 }
 @media (min-width: 760px) {
   .contact__subtitle {
@@ -630,6 +774,25 @@ header h2 {
   .footer .copy {
     font-size: 1.2em;
   }
+}
+
+.btn__form {
+  align-items: center;
+  background-color: #010105;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  color: #060708;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Josefin Sans", sans-serif;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 16px;
+  transition: box-shadow 0.15s, transform 0.15s;
+  color: #FEF7ED;
 }
 
 /*# sourceMappingURL=style.css.map */
