@@ -11,6 +11,8 @@ body {
 
 main {
   margin-top: 70px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -346,6 +348,11 @@ header h2 {
   }
 }
 
+.slider__title.effectscroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .slider-section {
   margin-top: 150px;
 }
@@ -401,6 +408,20 @@ header h2 {
   width: 250px;
 }
 
+.slider__div {
+  opacity: 0;
+  transition: all 900ms ease-in-out;
+}
+
+.slide_effect {
+  opacity: 0;
+  transition: all 5s ease-in-out;
+}
+
+.slider__div.effectsdiv {
+  opacity: 1;
+}
+
 .slide img {
   width: 60px;
 }
@@ -430,6 +451,10 @@ header h2 {
   .projects h2 {
     font-size: 4rem;
   }
+}
+.projects h2.effectscroll {
+  opacity: 1;
+  transform: translateY(0);
 }
 .projects__button {
   margin: auto;
@@ -479,6 +504,16 @@ header h2 {
     font-size: 1em;
   }
 }
+.projects__btn.effectsdiv {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.projects__btn_effect {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 700ms ease-in-out;
+}
 
 .projects__btn:focus, .card__buttons a button:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
@@ -496,6 +531,9 @@ header h2 {
 
 .card {
   width: 20rem;
+  transform: translateY(200px);
+  opacity: 0;
+  transition: all 700ms ease-in-out;
 }
 .card .card-body {
   font-family: "Josefin Sans", sans-serif !important;
@@ -606,6 +644,17 @@ header h2 {
   }
 }
 
+.card.transition_effect.transition_effect {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card_1, .card_2, .card_3, .card_4 {
+  transform: translateY(200px);
+  opacity: 0;
+  transition: all 800ms ease-in-out;
+}
+
 .contact {
   margin-top: 120px;
   padding: 30px 20px;
@@ -623,6 +672,10 @@ header h2 {
   .contact__titlemain {
     font-size: 4rem;
   }
+}
+.contact__titlemain.effectscroll {
+  opacity: 1;
+  transform: translateY(0);
 }
 .contact__subtitle {
   font-size: 1rem;
@@ -644,6 +697,10 @@ header h2 {
     font-size: 1.5rem;
   }
 }
+.contact__subtitle.effectscroll {
+  opacity: 1;
+  transform: translateY(0);
+}
 .contact form {
   width: 100%;
 }
@@ -656,8 +713,18 @@ header h2 {
   background-color: white;
   border-radius: 15px;
 }
+.contact__div.effectsdiv {
+  opacity: 1;
+  transform: scale(1);
+}
 .contact .first-div {
   box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.3);
+}
+
+.contact__div_effect {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 1s ease-in-out;
 }
 
 .footer {
@@ -793,6 +860,12 @@ header h2 {
   padding: 5px 16px;
   transition: box-shadow 0.15s, transform 0.15s;
   color: #FEF7ED;
+}
+
+.slider__title_effect, .projects__title_effect, .contact__title_effect, .contact__p_effect {
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 700ms ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */

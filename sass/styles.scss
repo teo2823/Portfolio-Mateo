@@ -15,6 +15,8 @@ body {
 
 main {
     margin-top: 70px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -335,6 +337,10 @@ header h2 {
     @include font-size(4rem);
     font-weight: bold;
 }
+.slider__title.effectscroll{
+    opacity: 1;
+    transform: translateY(0);
+}
 
 //SLIDER INFINITY
 
@@ -366,6 +372,8 @@ header h2 {
 	overflow:hidden;
 	position: relative;
 	max-width: 1500px;
+    
+
 	
 	&::before,
 	&::after {
@@ -392,10 +400,11 @@ header h2 {
 		animation: scroll variables.$animationSpeed linear infinite;
 		display: flex;
 		width: calc(100px * 17);
+       
+
         @media (min-width: 768px){
             width: calc(150px * 20);
-        }
-        
+        } 
 	}
 	
 	.slide {
@@ -403,8 +412,28 @@ header h2 {
         place-content: center;
 		height: 120px;
 		width: 250px;
+        
+
 	}
 }
+
+.slider__div {
+    opacity: 0;
+    transition: all 900ms ease-in-out;
+}
+
+.slide_effect {
+    opacity: 0;
+    transition: all 5s ease-in-out;
+}
+
+.slider__div.effectsdiv {
+    opacity: 1;
+}
+
+
+
+
 
 .slide img {
     width: 60px;
@@ -429,6 +458,10 @@ header h2 {
         font-weight: bold;
         @include font-size(4rem);
     }
+    h2.effectscroll{
+        opacity: 1;
+        transform: translateY(0);
+    }
 
     &__button {
         margin: auto;
@@ -441,7 +474,17 @@ header h2 {
         @media (min-width: 768px){
             @include button(160px, #ffffff, 40px, 1em);
         }
+        &.effectsdiv {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
+}
+
+.projects__btn_effect {
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 700ms ease-in-out;
 }
 
 
@@ -465,6 +508,11 @@ header h2 {
 //CARDS SECTION
 .card {
     width: 20rem;
+
+    //animation styles
+    transform: translateY(200px);
+    opacity: 0;
+    transition: all 700ms ease-in-out;
     .card-body {
         font-family: variables.$font !important;
     }
@@ -502,6 +550,18 @@ header h2 {
     }
 }
 
+.card.transition_effect.transition_effect{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.card_1, .card_2, .card_3, .card_4 {
+    transform: translateY(200px);
+    opacity: 0;
+    transition: all 800ms ease-in-out;
+}
+
+
 // CONTACT SECTION STYLES 
 
 .contact {
@@ -509,6 +569,10 @@ header h2 {
         font-weight: bold;
         @include font-size(4rem);
         color: variables.$white;
+    }
+    &__titlemain.effectscroll{
+        opacity: 1;
+        transform: translateY(0);
     }
     margin-top: 120px;
     padding: 30px 20px;
@@ -534,6 +598,10 @@ header h2 {
             line-height: 30px;
         }
     }
+    &__subtitle.effectscroll{
+        opacity: 1;
+        transform: translateY(0);
+    }
 
     form {
         width: 100%;
@@ -546,12 +614,23 @@ header h2 {
         margin: auto;
         background-color: white;
         border-radius: 15px;
+
+        &.effectsdiv {
+            opacity: 1;
+            transform: scale(1);
+        }
         
     }
 
     .first-div {
         box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.3);;
     }
+}
+
+.contact__div_effect {
+    opacity: 0;
+    transform: scale(0.3);
+    transition: all 1s ease-in-out;
 }
 
 
@@ -690,5 +769,8 @@ header h2 {
 }
 
 
-//dark mode styles
-
+.slider__title_effect, .projects__title_effect, .contact__title_effect, .contact__p_effect{
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 700ms ease-in-out;
+}
