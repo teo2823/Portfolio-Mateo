@@ -112,7 +112,6 @@ let slider = document.querySelector('.slider_effect')
 let effectContact = (entrys, observadorCuatro)=>{
     entrys.forEach((entry) => {
         if(entry.isIntersecting){
-            console.log(entry)
             entry.target.classList.add('effectsdiv');
         } 
         
