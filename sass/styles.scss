@@ -559,7 +559,15 @@ header h2 {
     opacity: 0;
     transition: all 700ms ease-in-out;
     .card-body {
-        font-family: variables.$font !important;
+        .card-title {
+            font-family: variables.$font !important;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-family: variables.$font !important;
+        }
+        
     }
     @media (min-width: 768px){
         width: 30rem;
